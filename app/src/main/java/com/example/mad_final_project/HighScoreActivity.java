@@ -6,8 +6,6 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.color.utilities.Score;
-
 import java.util.List;
 
 public class HighScoreActivity extends AppCompatActivity {
@@ -22,8 +20,16 @@ public class HighScoreActivity extends AppCompatActivity {
         highScoreList = findViewById(R.id.highScoreList);
         dbHandler = new DatabaseHandler(this);
 
-        List<Score> topScores = dbHandler.getTop5Scores();
-        ArrayAdapter<Score> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, topScores);
+        // Get the top 5 high scores from the database
+        List<HighscoreClass> topScores = dbHandler.top5Highscore();
+
+        // Create a custom adapter to display HighscoreClass objects
+        ArrayAdapter<HighscoreClass> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_list_item_1,
+                topScores
+        );
+
         highScoreList.setAdapter(adapter);
     }
 }

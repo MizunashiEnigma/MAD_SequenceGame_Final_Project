@@ -42,4 +42,11 @@ public class HighscoreClass<HighscoreClass> {
     public void setHighscore(int highscore) {
         this._highscore = highscore;
     }
+
+    @Override
+    public String toString() {
+        return _name + " - " + _highscore;
+    }
 }
+
+
