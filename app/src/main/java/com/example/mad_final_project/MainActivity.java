@@ -201,4 +201,3 @@ public class MainActivity extends AppCompatActivity
 //            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
 //        }
 //    }
-}

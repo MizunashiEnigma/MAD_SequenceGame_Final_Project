@@ -140,7 +140,7 @@ public class SequenceActivity extends AppCompatActivity implements SensorEventLi
     // Game Over Method
     private void showGameOver()
     {
-        Intent intent = new Intent(SequenceActivity.this, ResultsActivity.class);
+        Intent intent = new Intent(SequenceActivity.this, GameOverActivity.class);
         intent.putExtra("score", score);
         startActivity(intent);
         finish();
