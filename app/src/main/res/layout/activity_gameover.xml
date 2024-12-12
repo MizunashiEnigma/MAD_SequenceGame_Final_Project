@@ -1,41 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameOverActivity">
-
-    <Button
-        android:id="@+id/saveScoreButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save Score"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="288dp" />
-
-    <Button
-        android:id="@+id/viewHighScoresButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View Scores"
-        tools:layout_editor_absoluteX="582dp"
-        tools:layout_editor_absoluteY="302dp" />
+    android:padding="32dp"
+    android:background="#f8f8f8"
+    android:gravity="center">
 
     <TextView
-        android:id="@+id/finalScoreDisplay"
+        android:id="@+id/scoreTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="299dp"
-        tools:layout_editor_absoluteY="26dp" />
+        android:text="Final Score: 0"
+        android:textSize="24sp"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp" />
 
-    <EditText
-        android:id="@+id/playerNameInput"
+    <Button
+        android:id="@+id/highScoresButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="95dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="High Scores"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/scoreTV"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/playAgainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Again"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/highScoresButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/returnButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return to Home"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/playAgainButton"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

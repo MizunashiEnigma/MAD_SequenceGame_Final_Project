@@ -107,6 +107,25 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         return topFiveHighscoreList;
     }
 
+    // Top 5 Scores
+    public Cursor getTopScores()
+    {
+        // Need a readable database
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Find it by Descending Order
+        return db.query(TABLE_HIGHSCORE,
+                // Grab the name and score
+                new String[]{KEY_NAME, KEY_HIGHSCORE},
+                null,
+                null,
+                null,
+                null,
+                KEY_HIGHSCORE + " DESC",
+                // ONLY show the top 5. Change this to view more.
+                "5");
+    }
+
 
     // code to get all contacts in a list view
     public List<HighscoreClass> getAllHighscore() {
