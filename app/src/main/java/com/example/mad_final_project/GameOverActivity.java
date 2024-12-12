@@ -90,7 +90,7 @@ public class GameOverActivity extends AppCompatActivity {
 
         if (cursor != null && cursor.moveToLast())
         {
-            int lowestTopScore = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHandler.K));
+            int lowestTopScore = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHandler.KEY_HIGHSCORE));
             cursor.close();
 
             return score > lowestTopScore || cursor.getCount() < 5;
@@ -135,7 +135,7 @@ public class GameOverActivity extends AppCompatActivity {
                 {
                     // Save the Score with the Entered Name in the Database
                     DatabaseHandler dbHandler = new DatabaseHandler(GameOverActivity.this);
-                    dbHandler.addHighScore(dbHandler);
+                    dbHandler.addScore(name, score);
                 }
                 else
                 {

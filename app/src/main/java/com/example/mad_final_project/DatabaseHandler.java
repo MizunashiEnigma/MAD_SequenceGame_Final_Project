@@ -15,9 +15,14 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     private static final String TABLE_HIGHSCORE = "highscore";
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
-    private static final String KEY_HIGHSCORE = "highscore";
+    public static final String KEY_HIGHSCORE = "highscore"; //need to use this, and this is the quickest fix
 
 
+    private static final String TABLE_CREATE =
+            "CREATE TABLE " + TABLE_HIGHSCORE + " (" +
+                    KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    KEY_NAME + " TEXT, " +
+                    KEY_HIGHSCORE + " INTEGER);";
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         //3rd argument to be passed is CursorFactory instance
@@ -48,6 +53,20 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
         // Create tables again
         onCreate(db);
+    }
+
+    public void addScore(String name, int score)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // Storing the Players Name and Their Score
+        values.put(KEY_NAME, name);
+        values.put(KEY_HIGHSCORE, score);
+
+        // Insert the Data and Close up
+        db.insert(TABLE_HIGHSCORE, null, values);
+        db.close();
     }
 
     // code to add the new contact
