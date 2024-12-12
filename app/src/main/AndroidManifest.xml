@@ -55,6 +55,22 @@
             </intent-filter>
 
         </activity>
+
+        <activity
+            android:name=".SequenceActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            tools:ignore="DiscouragedAPI">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.GAMEOVER" />
+                <action android:name="android.intent.action.HIGHSCORE"/>
+                <action android:name="android.intent.action.SEQUENCE"/>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
